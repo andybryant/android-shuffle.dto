@@ -92,10 +92,9 @@
     </issueManagement>
 
     <scm>
-        <connection>scm:hg:http://android-shuffle.googlecode.com/hg/</connection>
-        <developerConnection>scm:hg:https://android-shuffle.googlecode.com/hg//</developerConnection>
-        <url>http://http://code.google.com/p/android-shuffle/source/browse/</url>
+        <connection>scm:git:ssh://git@bitbucket.org/andybryant/shuffle-dto.git</connection>
+        <developerConnection>scm:git:ssh://git@bitbucket.org/andybryant/shuffle-dto.git</developerConnection>
+        <url>https://bitbucket.org/andybryant/shuffle-dto</url>
     </scm>
-
 
 </project>
