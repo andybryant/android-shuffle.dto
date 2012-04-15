@@ -1,0 +1,101 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.dodgybits.shuffle</groupId>
+    <artifactId>shuffle-dto</artifactId>
+    <version>2.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>Shuffle DTO</name>
+
+    <properties>
+        <protobuf.version>2.4.1</protobuf.version>
+
+        <build-helper-maven-plugin.version>1.7</build-helper-maven-plugin.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>${protobuf.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>generate-sources</id>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <tasks>
+                                <mkdir dir="target/generated-sources/protoc"/>
+                                <exec executable="${PROTOC_HOME}/protoc">
+                                    <arg value="--java_out=target/generated-sources/protoc"/>
+                                    <arg value="src/main/resources/shuffle.proto"/>
+                                </exec>
+                            </tasks>
+                            <sourceRoot>target/generated-sources/protoc</sourceRoot>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>${build-helper-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>add-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.build.directory}/generated-sources/protoc</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+
+    <licenses>
+        <license>
+            <name>Apache 2</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>andybryant</id>
+            <name>Andy Bryant</name>
+            <email>andybryant@gmail.com</email>
+        </developer>
+    </developers>
+
+    <issueManagement>
+        <system>Google Code</system>
+        <url>http://code.google.com/p/android-shuffle/issues</url>
+    </issueManagement>
+
+    <scm>
+        <connection>scm:hg:http://android-shuffle.googlecode.com/hg/</connection>
+        <developerConnection>scm:hg:https://android-shuffle.googlecode.com/hg//</developerConnection>
+        <url>http://http://code.google.com/p/android-shuffle/source/browse/</url>
+    </scm>
+
+
+</project>
