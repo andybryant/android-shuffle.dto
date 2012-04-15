@@ -1,10 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.dodgybits.shuffle</groupId>
     <artifactId>shuffle-dto</artifactId>
-    <version>2.0.0-SNAPSHOT</version>
+    <version>2.0.0</version>
     <packaging>jar</packaging>
     <name>Shuffle DTO</name>
 
@@ -32,10 +31,10 @@
                         <phase>generate-sources</phase>
                         <configuration>
                             <tasks>
-                                <mkdir dir="target/generated-sources/protoc"/>
+                                <mkdir dir="target/generated-sources/protoc" />
                                 <exec executable="${PROTOC_HOME}/protoc">
-                                    <arg value="--java_out=target/generated-sources/protoc"/>
-                                    <arg value="src/main/resources/shuffle.proto"/>
+                                    <arg value="--java_out=target/generated-sources/protoc" />
+                                    <arg value="src/main/resources/shuffle.proto" />
                                 </exec>
                             </tasks>
                             <sourceRoot>target/generated-sources/protoc</sourceRoot>
