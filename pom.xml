@@ -92,8 +92,8 @@
     </issueManagement>
 
     <scm>
-        <connection>scm:git:https://git@bitbucket.org/andybryant/shuffle-dto.git</connection>
-        <developerConnection>scm:git:https://git@bitbucket.org/andybryant/shuffle-dto.git</developerConnection>
+        <connection>scm:git:ssh://git@bitbucket.org/andybryant/shuffle-dto.git</connection>
+        <developerConnection>scm:git:ssh://git@bitbucket.org/andybryant/shuffle-dto.git</developerConnection>
         <url>https://bitbucket.org/andybryant/shuffle-dto</url>
     </scm>
 
