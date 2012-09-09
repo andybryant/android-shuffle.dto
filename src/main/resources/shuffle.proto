@@ -12,7 +12,7 @@ message Context {
   optional int64 tracksId = 6;
   optional bool active = 7;
   optional bool deleted = 8;
-  optional int64 gaeId = 9;
+  optional int64 gaeEntityId = 9;
 }
 
 message Project {
@@ -24,7 +24,7 @@ message Project {
   optional bool parallel = 6;
   optional bool active = 7;
   optional bool deleted = 8;
-  optional int64 gaeId = 9;
+  optional int64 gaeEntityId = 9;
 }
 
 message Task {
@@ -46,7 +46,7 @@ message Task {
   optional bool active = 16;
   optional bool deleted = 17;
   repeated int64 contextIds = 18;
-  optional int64 gaeId = 19;
+  optional int64 gaeEntityId = 19;
 }
 
 message Date {
@@ -105,5 +105,5 @@ message SyncResponse {
 
 message SyncIdPair {
   optional int64 deviceId = 1;
-  optional int64 gaeId = 2;
+  optional int64 gaeEntityId = 2;
 }
