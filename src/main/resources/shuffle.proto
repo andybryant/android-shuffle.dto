@@ -104,6 +104,6 @@ message SyncResponse {
 }
 
 message SyncIdPair {
-  optional int64 deviceId = 1;
+  optional int64 deviceEntityId = 1;
   optional int64 gaeEntityId = 2;
 }
