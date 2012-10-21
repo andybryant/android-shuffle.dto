@@ -66,19 +66,21 @@ message SyncRequest {
   optional int64 lastSyncDeviceDate = 3;
   optional int64 lastSyncGaeDate = 4;
 
-  optional int64 currentDeviceDate = 5;
+  optional bool entitiesPermanentlyDeleted = 5;
 
-  repeated Context newContexts = 6;
-  repeated Context modifiedContexts = 7;
-  repeated SyncIdPair unmodifiedContextIdPairs = 8;
+  optional int64 currentDeviceDate = 6;
 
-  repeated Project newProjects = 9;
-  repeated Project modifiedProjects = 10;
-  repeated SyncIdPair unmodifiedProjectIdPairs = 11;
+  repeated Context newContexts = 7;
+  repeated Context modifiedContexts = 8;
+  repeated SyncIdPair unmodifiedContextIdPairs = 9;
 
-  repeated Task newTasks = 12;
-  repeated Task modifiedTasks = 13;
-  repeated SyncIdPair unmodifiedTaskIdPairs = 14;
+  repeated Project newProjects = 10;
+  repeated Project modifiedProjects = 12;
+  repeated SyncIdPair unmodifiedProjectIdPairs = 13;
+
+  repeated Task newTasks = 14;
+  repeated Task modifiedTasks = 15;
+  repeated SyncIdPair unmodifiedTaskIdPairs = 16;
 }
 
 message SyncResponse {
