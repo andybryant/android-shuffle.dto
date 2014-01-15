@@ -81,6 +81,8 @@ message SyncRequest {
   repeated Task newTasks = 14;
   repeated Task modifiedTasks = 15;
   repeated SyncIdPair unmodifiedTaskIdPairs = 16;
+
+  optional string gcmRegistrationId = 17;
 }
 
 message SyncResponse {
