@@ -83,6 +83,7 @@ message SyncRequest {
   repeated SyncIdPair unmodifiedTaskIdPairs = 16;
 
   optional string gcmRegistrationId = 17;
+  optional int64 clientVersion = 18;
 }
 
 message SyncResponse {
