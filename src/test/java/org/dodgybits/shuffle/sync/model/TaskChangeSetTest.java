@@ -108,4 +108,23 @@ public class TaskChangeSetTest {
         assertFalse(set.isAllDayChanged());
     }
 
+    @Test
+    public void testMarkAll() {
+        TaskChangeSet set = TaskChangeSet.newChangeSet();
+        set.markAll();
+
+        assertTrue(set.hasChanges());
+        assertTrue(set.isDetailsChanged());
+        assertTrue(set.isDescriptionChanged());
+        assertTrue(set.isContextsChanged());
+        assertTrue(set.isProjectChanged());
+        assertTrue(set.isDueChanged());
+        assertTrue(set.isShowFromChanged());
+        assertTrue(set.isOrderChanged());
+        assertTrue(set.isCompleteChanged());
+        assertTrue(set.isActiveChanged());
+        assertTrue(set.isAllDayChanged());
+
+    }
+
 }

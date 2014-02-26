@@ -112,5 +112,9 @@ public class TaskChangeSet extends EntityChangeSet {
         mark(ORDER_MASK);
     }
 
+    public boolean isProjectOrderingChanged() {
+        return isOrderChanged() || isProjectChanged();
+    }
+
 
 }

@@ -100,5 +100,18 @@ public class ContextChangeSetTest {
         assertTrue(clonedSet.isNameChanged());
     }
 
+    @Test
+    public void testMarkAll() {
+        ContextChangeSet set = ContextChangeSet.newChangeSet();
+        set.markAll();
+
+        assertTrue(set.hasChanges());
+        assertTrue(set.isActiveChanged());
+        assertTrue(set.isDeletedChanged());
+        assertTrue(set.isColourChanged());
+        assertTrue(set.isIconChanged());
+        assertTrue(set.isNameChanged());
+    }
+
 
 }

@@ -54,6 +54,10 @@ public abstract class EntityChangeSet {
         return changeSet != 0L;
     }
 
+    public void markAll() {
+        changeSet = 0xffff_ffff_ffff_ffffL;
+    }
+
     protected boolean changed(long mask) {
         return (changeSet & mask) != 0L;
     }
