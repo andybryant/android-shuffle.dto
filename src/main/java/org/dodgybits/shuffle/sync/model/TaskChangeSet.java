@@ -112,8 +112,49 @@ public class TaskChangeSet extends EntityChangeSet {
         mark(ORDER_MASK);
     }
 
-    public boolean isProjectOrderingChanged() {
-        return isOrderChanged() || isProjectChanged();
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder("[TaskChangeSet");
+        if (hasChanges()) {
+            builder.append(" changed:");
+            if (isActiveChanged()) {
+                builder.append(" active");
+            }
+            if (isDeletedChanged()) {
+                builder.append(" deleted");
+            }
+            if (isDescriptionChanged()) {
+                builder.append(" description");
+            }
+            if (isDetailsChanged()) {
+                builder.append(" detail");
+            }
+            if (isContextsChanged()) {
+                builder.append(" contexts");
+            }
+            if (isProjectChanged()) {
+                builder.append(" project");
+            }
+            if (isShowFromChanged()) {
+                builder.append(" showFrom");
+            }
+            if (isDueChanged()) {
+                builder.append(" due");
+            }
+            if (isAllDayChanged()) {
+                builder.append(" allDay");
+            }
+            if (isCompleteChanged()) {
+                builder.append(" complete");
+            }
+            if (isOrderChanged()) {
+                builder.append(" order");
+            }
+        } else {
+            builder.append(" unchanged");
+        }
+        builder.append(']');
+        return builder.toString();
     }
 
 

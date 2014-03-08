@@ -57,4 +57,31 @@ public class ProjectChangeSet extends EntityChangeSet {
         mark(PARALLEL_MASK);
     }
 
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder("[ProjectChangeSet");
+        if (hasChanges()) {
+            builder.append(" changed:");
+            if (isActiveChanged()) {
+                builder.append(" active");
+            }
+            if (isDeletedChanged()) {
+                builder.append(" deleted");
+            }
+            if (isNameChanged()) {
+                builder.append(" name");
+            }
+            if (isDefaultContextChanged()) {
+                builder.append(" defaultContext");
+            }
+            if (isParallelChanged()) {
+                builder.append(" parallel");
+            }
+        } else {
+            builder.append(" unchanged");
+        }
+        builder.append(']');
+        return builder.toString();
+    }
+
 }

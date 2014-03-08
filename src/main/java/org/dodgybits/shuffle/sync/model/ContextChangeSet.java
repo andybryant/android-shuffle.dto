@@ -56,4 +56,31 @@ public class ContextChangeSet extends EntityChangeSet {
     public void iconChanged() {
         mark(ICON_MASK);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder("[ContextChangeSet");
+        if (hasChanges()) {
+            builder.append(" changed:");
+            if (isActiveChanged()) {
+                builder.append(" active");
+            }
+            if (isDeletedChanged()) {
+                builder.append(" deleted");
+            }
+            if (isNameChanged()) {
+                builder.append(" name");
+            }
+            if (isIconChanged()) {
+                builder.append(" icon");
+            }
+            if (isColourChanged()) {
+                builder.append(" colour");
+            }
+        } else {
+            builder.append(" unchanged");
+        }
+        builder.append(']');
+        return builder.toString();
+    }
 }
