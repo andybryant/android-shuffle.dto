@@ -28,7 +28,7 @@ public class TaskChangeSet extends EntityChangeSet {
     private static final long COMPLETE_MASK = 0b100_0000_0000;
 
     public static TaskChangeSet newChangeSet() {
-        return new TaskChangeSet(0L);
+        return new TaskChangeSet(NO_CHANGES);
     }
 
 
@@ -44,72 +44,72 @@ public class TaskChangeSet extends EntityChangeSet {
         return changed(DESCRIPTION_MASK);
     }
 
-    public void descriptionChanged() {
-        mark(DESCRIPTION_MASK);
+    public boolean descriptionChanged() {
+        return mark(DESCRIPTION_MASK);
     }
 
     public boolean isDetailsChanged() {
         return changed(DETAILS_MASK);
     }
 
-    public void detailsChanged() {
-        mark(DETAILS_MASK);
+    public boolean detailsChanged() {
+        return mark(DETAILS_MASK);
     }
 
     public boolean isContextsChanged() {
         return changed(CONTEXTS_MASK);
     }
 
-    public void contextsChanged() {
-        mark(CONTEXTS_MASK);
+    public boolean contextsChanged() {
+        return mark(CONTEXTS_MASK);
     }
 
     public boolean isProjectChanged() {
         return changed(PROJECT_MASK);
     }
 
-    public void projectChanged() {
-        mark(PROJECT_MASK);
+    public boolean projectChanged() {
+        return mark(PROJECT_MASK);
     }
 
     public boolean isShowFromChanged() {
         return changed(SHOW_FROM_MASK);
     }
 
-    public void showFromChanged() {
-        mark(SHOW_FROM_MASK);
+    public boolean showFromChanged() {
+        return mark(SHOW_FROM_MASK);
     }
 
     public boolean isDueChanged() {
         return changed(DUE_MASK);
     }
 
-    public void dueChanged() {
-        mark(DUE_MASK);
+    public boolean dueChanged() {
+        return mark(DUE_MASK);
     }
 
     public boolean isAllDayChanged() {
         return changed(ALL_DAY_MASK);
     }
 
-    public void allDayChanged() {
-        mark(ALL_DAY_MASK);
+    public boolean allDayChanged() {
+        return mark(ALL_DAY_MASK);
     }
 
     public boolean isCompleteChanged() {
         return changed(COMPLETE_MASK);
     }
 
-    public void completeChanged() {
-        mark(COMPLETE_MASK);
+    public boolean completeChanged() {
+        return mark(COMPLETE_MASK);
     }
 
     public boolean isOrderChanged() {
         return changed(ORDER_MASK);
     }
 
-    public void orderChanged() {
-        mark(ORDER_MASK);
+    public boolean orderChanged() {
+        return mark(ORDER_MASK);
     }
 
     @Override

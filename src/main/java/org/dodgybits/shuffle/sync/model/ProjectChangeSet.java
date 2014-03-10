@@ -22,7 +22,7 @@ public class ProjectChangeSet extends EntityChangeSet {
     private static final long PARALLEL_MASK = 0b1_0000;
 
     public static ProjectChangeSet newChangeSet() {
-        return new ProjectChangeSet(0L);
+        return new ProjectChangeSet(NO_CHANGES);
     }
 
     public static ProjectChangeSet fromChangeSet(long changeSet) {
@@ -37,24 +37,24 @@ public class ProjectChangeSet extends EntityChangeSet {
         return changed(NAME_MASK);
     }
 
-    public void nameChanged() {
-        mark(NAME_MASK);
+    public boolean nameChanged() {
+        return mark(NAME_MASK);
     }
 
     public boolean isDefaultContextChanged() {
         return changed(DEFAULT_CONTEXT_MASK);
     }
 
-    public void defaultContextChanged() {
-        mark(DEFAULT_CONTEXT_MASK);
+    public boolean defaultContextChanged() {
+        return mark(DEFAULT_CONTEXT_MASK);
     }
 
     public boolean isParallelChanged() {
         return changed(PARALLEL_MASK);
     }
 
-    public void parallelChanged() {
-        mark(PARALLEL_MASK);
+    public boolean parallelChanged() {
+        return mark(PARALLEL_MASK);
     }
 
     @Override

@@ -53,8 +53,8 @@ public class TaskChangeSetTest {
     public void testSaveAndRestore() {
         TaskChangeSet set = TaskChangeSet.newChangeSet();
         set.allDayChanged();
-        set.activeChanged();
-        set.detailsChanged();
+        assertTrue(set.activeChanged());
+        assertTrue(set.detailsChanged());
         set.descriptionChanged();
 
         assertTrue(set.hasChanges());
@@ -93,7 +93,7 @@ public class TaskChangeSetTest {
         TaskChangeSet set = TaskChangeSet.newChangeSet();
         assertFalse(set.isOrderChanged());
 
-        set.orderChanged();
+        assertTrue(set.orderChanged());
 
         assertTrue(set.hasChanges());
         assertFalse(set.isDetailsChanged());

@@ -22,7 +22,7 @@ public class ContextChangeSet extends EntityChangeSet {
     private static final long ICON_MASK = 0b1_0000;
 
     public static ContextChangeSet newChangeSet() {
-        return new ContextChangeSet(0L);
+        return new ContextChangeSet(NO_CHANGES);
     }
 
     public static ContextChangeSet fromChangeSet(long changeSet) {
@@ -37,24 +37,24 @@ public class ContextChangeSet extends EntityChangeSet {
         return changed(NAME_MASK);
     }
 
-    public void nameChanged() {
-        mark(NAME_MASK);
+    public boolean nameChanged() {
+        return mark(NAME_MASK);
     }
 
     public boolean isColourChanged() {
         return changed(COLOUR_MASK);
     }
 
-    public void colourChanged() {
-        mark(COLOUR_MASK);
+    public boolean colourChanged() {
+        return mark(COLOUR_MASK);
     }
 
     public boolean isIconChanged() {
         return changed(ICON_MASK);
     }
 
-    public void iconChanged() {
-        mark(ICON_MASK);
+    public boolean iconChanged() {
+        return mark(ICON_MASK);
     }
 
     @Override

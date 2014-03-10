@@ -15,12 +15,20 @@
  */
 package org.dodgybits.shuffle.sync.model;
 
-public abstract class EntityChangeSet {
+public class EntityChangeSet {
     private long changeSet;
+
+    public static final long NO_CHANGES = 0L;
 
     // All entities
     private static final long DELETED_MASK = 0b1;
     private static final long ACTIVE_MASK = 0b10;
+
+    public static EntityChangeSet fromChangeSet(long changeSet) {
+        // useful if you want to twiddle with delete/active flags
+        // generically for all entity types
+        return new EntityChangeSet(changeSet);
+    }
 
     protected EntityChangeSet(long changeSet) {
         this.changeSet = changeSet;
@@ -34,24 +42,24 @@ public abstract class EntityChangeSet {
         return changed(DELETED_MASK);
     }
 
-    public void deleteChanged() {
-        mark(DELETED_MASK);
+    public boolean deleteChanged() {
+        return mark(DELETED_MASK);
     }
 
     public boolean isActiveChanged() {
         return changed(ACTIVE_MASK);
     }
 
-    public void activeChanged() {
-        mark(ACTIVE_MASK);
+    public boolean activeChanged() {
+        return mark(ACTIVE_MASK);
     }
 
     public void reset() {
-        changeSet = 0L;
+        changeSet = NO_CHANGES;
     }
 
     public boolean hasChanges() {
-        return changeSet != 0L;
+        return changeSet != NO_CHANGES;
     }
 
     public void markAll() {
@@ -59,11 +67,13 @@ public abstract class EntityChangeSet {
     }
 
     protected boolean changed(long mask) {
-        return (changeSet & mask) != 0L;
+        return (changeSet & mask) != NO_CHANGES;
     }
 
-    protected void mark(long mask) {
+    protected boolean mark(long mask) {
+        long previous = changeSet;
         changeSet |= mask;
+        return changeSet != previous;
     }
 
     @Override

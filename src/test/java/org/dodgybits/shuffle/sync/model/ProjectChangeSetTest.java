@@ -51,7 +51,8 @@ public class ProjectChangeSetTest {
         assertFalse(set.isNameChanged());
         assertFalse(set.isDefaultContextChanged());
 
-        set.parallelChanged();
+        assertTrue(set.parallelChanged());
+        assertFalse(set.parallelChanged());
 
         assertTrue(set.hasChanges());
         assertTrue(set.isActiveChanged());

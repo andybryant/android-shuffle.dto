@@ -33,7 +33,7 @@ public class ContextChangeSetTest {
         assertFalse(set.isIconChanged());
         assertFalse(set.isNameChanged());
 
-        set.activeChanged();
+        assertTrue(set.activeChanged());
 
         assertTrue(set.hasChanges());
         assertTrue(set.isActiveChanged());
@@ -42,7 +42,8 @@ public class ContextChangeSetTest {
         assertFalse(set.isIconChanged());
         assertFalse(set.isNameChanged());
 
-        set.deleteChanged();
+        assertTrue(set.deleteChanged());
+        assertFalse(set.deleteChanged());
 
         assertTrue(set.hasChanges());
         assertTrue(set.isActiveChanged());
@@ -83,8 +84,8 @@ public class ContextChangeSetTest {
     public void testSaveAndRestore() {
         ContextChangeSet set = ContextChangeSet.newChangeSet();
 
-        set.nameChanged();
-        set.iconChanged();
+        assertTrue(set.nameChanged());
+        assertTrue(set.iconChanged());
 
         long val = set.getChangeSet();
 
