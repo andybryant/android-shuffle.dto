@@ -16,7 +16,7 @@
     </parent>
 
     <properties>
-        <protobuf.version>2.4.1</protobuf.version>
+        <protobuf.version>2.5.0</protobuf.version>
 
         <build-helper-maven-plugin.version>1.7</build-helper-maven-plugin.version>
     </properties>
