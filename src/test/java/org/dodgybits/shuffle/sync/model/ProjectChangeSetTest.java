@@ -32,6 +32,7 @@ public class ProjectChangeSetTest {
         assertFalse(set.isParallelChanged());
         assertFalse(set.isNameChanged());
         assertFalse(set.isDefaultContextChanged());
+        assertFalse(set.isOrderChanged());
 
         set.activeChanged();
 
@@ -41,6 +42,7 @@ public class ProjectChangeSetTest {
         assertFalse(set.isParallelChanged());
         assertFalse(set.isNameChanged());
         assertFalse(set.isDefaultContextChanged());
+        assertFalse(set.isOrderChanged());
 
         set.deleteChanged();
 
@@ -50,6 +52,7 @@ public class ProjectChangeSetTest {
         assertFalse(set.isParallelChanged());
         assertFalse(set.isNameChanged());
         assertFalse(set.isDefaultContextChanged());
+        assertFalse(set.isOrderChanged());
 
         assertTrue(set.parallelChanged());
         assertFalse(set.parallelChanged());
@@ -60,6 +63,7 @@ public class ProjectChangeSetTest {
         assertTrue(set.isParallelChanged());
         assertFalse(set.isNameChanged());
         assertFalse(set.isDefaultContextChanged());
+        assertFalse(set.isOrderChanged());
 
         set.nameChanged();
 
@@ -69,6 +73,7 @@ public class ProjectChangeSetTest {
         assertTrue(set.isParallelChanged());
         assertTrue(set.isNameChanged());
         assertFalse(set.isDefaultContextChanged());
+        assertFalse(set.isOrderChanged());
 
         set.defaultContextChanged();
 
@@ -78,6 +83,18 @@ public class ProjectChangeSetTest {
         assertTrue(set.isParallelChanged());
         assertTrue(set.isNameChanged());
         assertTrue(set.isDefaultContextChanged());
+        assertFalse(set.isOrderChanged());
+
+        assertTrue(set.orderChanged());
+        assertFalse(set.orderChanged());
+
+        assertTrue(set.hasChanges());
+        assertTrue(set.isActiveChanged());
+        assertTrue(set.isDeletedChanged());
+        assertTrue(set.isParallelChanged());
+        assertTrue(set.isNameChanged());
+        assertTrue(set.isDefaultContextChanged());
+        assertTrue(set.isOrderChanged());
     }
 
     @Test
@@ -99,6 +116,7 @@ public class ProjectChangeSetTest {
         assertFalse(clonedSet.isDefaultContextChanged());
         assertTrue(clonedSet.isParallelChanged());
         assertTrue(clonedSet.isNameChanged());
+        assertFalse(clonedSet.isOrderChanged());
     }
 
 

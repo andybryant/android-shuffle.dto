@@ -27,6 +27,7 @@ message Project {
   optional bool deleted = 8;
   optional int64 gaeEntityId = 9;
   optional int64 changeSet = 10;
+  optional int32 order = 11;
 }
 
 message Task {

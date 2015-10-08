@@ -20,6 +20,7 @@ public class ProjectChangeSet extends EntityChangeSet {
     private static final long NAME_MASK = 0b100;
     private static final long DEFAULT_CONTEXT_MASK = 0b1000;
     private static final long PARALLEL_MASK = 0b1_0000;
+    private static final long ORDER_MASK = 0b10_0000;
 
     public static ProjectChangeSet newChangeSet() {
         return new ProjectChangeSet(NO_CHANGES);
@@ -57,6 +58,14 @@ public class ProjectChangeSet extends EntityChangeSet {
         return mark(PARALLEL_MASK);
     }
 
+    public boolean isOrderChanged() {
+        return changed(ORDER_MASK);
+    }
+
+    public boolean orderChanged() {
+        return mark(ORDER_MASK);
+    }
+
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder("[ProjectChangeSet");
@@ -76,6 +85,9 @@ public class ProjectChangeSet extends EntityChangeSet {
             }
             if (isParallelChanged()) {
                 builder.append(" parallel");
+            }
+            if (isOrderChanged()) {
+                builder.append(" order");
             }
         } else {
             builder.append(" unchanged");
