@@ -14,7 +14,7 @@ The dto jar uses maven as its build and dependency management tool.
 ## Prerequisites
 
 1.  Maven 3.x - http://maven.apache.org/download.html
-2.  Google Protocol Buffer compiler 2.5.0 - http://code.google.com/p/protobuf/downloads/list
+2.  Google Protocol Buffer compiler 2.5.0 - https://github.com/google/protobuf
 3.  Set environment variable ```PROTOC_HOME``` to point to the directory holding the protoc executable
 
 ## Building
