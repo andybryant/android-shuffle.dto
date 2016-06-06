@@ -14,6 +14,7 @@ message Context {
   optional bool deleted = 8;
   optional int64 gaeEntityId = 9;
   optional int64 changeSet = 10;
+  optional int32 version = 11;
 }
 
 message Project {
@@ -28,6 +29,7 @@ message Project {
   optional int64 gaeEntityId = 9;
   optional int64 changeSet = 10;
   optional int32 order = 11;
+  optional int32 version = 12;
 }
 
 message Task {
@@ -51,6 +53,7 @@ message Task {
   repeated int64 contextIds = 18;
   optional int64 gaeEntityId = 19;
   optional int64 changeSet = 20;
+  optional int32 version = 21;
 }
 
 message Date {
