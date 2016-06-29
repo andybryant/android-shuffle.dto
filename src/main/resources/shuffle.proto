@@ -79,15 +79,15 @@ message SyncRequest {
 
   repeated Context newContexts = 7;
   repeated Context modifiedContexts = 8;
-  repeated SyncIdPair unmodifiedContextIdPairs = 9;
+  repeated Identifiers unmodifiedContextIds = 9;
 
   repeated Project newProjects = 10;
   repeated Project modifiedProjects = 12;
-  repeated SyncIdPair unmodifiedProjectIdPairs = 13;
+  repeated Identifiers unmodifiedProjectIds = 13;
 
   repeated Task newTasks = 14;
   repeated Task modifiedTasks = 15;
-  repeated SyncIdPair unmodifiedTaskIdPairs = 16;
+  repeated Identifiers unmodifiedTaskIds = 16;
 
   optional string gcmRegistrationId = 17;
   optional int64 clientVersion = 18;
@@ -101,21 +101,21 @@ message SyncResponse {
 
   repeated Context newContexts = 5;
   repeated Context modifiedContexts = 6;
-  repeated SyncIdPair addedContextIdPairs = 7;
+  repeated Identifiers addedContextIds = 7;
   repeated int64 deletedContextGaeIds = 8 [packed=true];
 
   repeated Project newProjects = 9;
   repeated Project modifiedProjects = 10;
-  repeated SyncIdPair addedProjectIdPairs = 11;
+  repeated Identifiers addedProjectIds = 11;
   repeated int64 deletedProjectGaeIds = 12 [packed=true];
 
   repeated Task newTasks = 13;
   repeated Task modifiedTasks = 14;
-  repeated SyncIdPair addedTaskIdPairs = 15;
+  repeated Identifiers addedTaskIds = 15;
   repeated int64 deletedTaskGaeIds = 16 [packed=true];
 }
 
-message SyncIdPair {
+message Identifiers {
   optional int64 deviceEntityId = 1;
   optional int64 gaeEntityId = 2;
   optional int32 version = 3;
